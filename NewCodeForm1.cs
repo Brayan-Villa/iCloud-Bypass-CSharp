@@ -1,15 +1,15 @@
-    public partial class Form1: Form
-    {
+	 public partial class Form1: Form
+	 {
 		public SshClient sh = new SshClient("127.0.0.1", "root", "alpine");
-        public ScpClient pc = new ScpClient("127.0.0.1", "root", "alpine");
-        private bool UntWild = false;
-        long usedMemory = GC.GetTotalMemory(true);
-        private iOSDeviceManager manager = new iOSDeviceManager();
-        private iOSDevice currentiOSDevice;
-        Process proc = new Process();
-        public Form1()
-        {
-            InitializeComponent();
+		  public ScpClient pc = new ScpClient("127.0.0.1", "root", "alpine");
+		  private bool UntWild = false;
+		  long usedMemory = GC.GetTotalMemory(true);
+		  private iOSDeviceManager manager = new iOSDeviceManager();
+		  private iOSDevice currentiOSDevice;
+		  Process proc = new Process();
+		  public Form1()
+		  {
+				InitializeComponent();
 			try
 			{
 				string x86 = "C:\\Program Files (x86)\\Common Files\\Apple\\Mobile Device Support\\iTunesMobileDevice.dll";
@@ -28,213 +28,213 @@
 				Form_Exit();
 			}
 			
-        }
+		  }
 		public void Form_Exit()
-        {
-            foreach (var process in Process.GetProcessesByName("EX3cutioN3Rv1.0"))
-            {
-                process.Kill();
-            }
-        }
-        public bool Proxy()
-        {
-            try
-            {
-                proc = new Process
-                {
-                    StartInfo = new ProcessStartInfo
-                    {
-                        FileName = ".\\LibimobiledeviceEXE\\iproxy.exe",
-                        Arguments = "22 44",
-                        UseShellExecute = false,
-                        RedirectStandardOutput = true,
-                        CreateNoWindow = true,
-                    }
-                };
-                proc.Start();
-                return true;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "ERROR");
-                return false;
-            }
-        }
-        public bool Desactivate()
-        {
-            try
-            {
-                proc = new Process
-                {
-                    StartInfo = new ProcessStartInfo
-                    {
-                        FileName = ".\\LibimobiledeviceEXE\\ideviceactivation.exe",
-                        Arguments = "deactivate",
-                        UseShellExecute = false,
-                        RedirectStandardOutput = true,
-                        CreateNoWindow = true,
-                    }
-                };
-                proc.Start();
-                return true;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "ERROR");
-                return false;
-            }
-        }
-        public bool HacktivateMEIDevice()
-        {
-            try
-            {
-                proc = new Process
-                {
-                    StartInfo = new ProcessStartInfo
-                    {
-                        FileName = ".\\LibimobiledeviceEXE\\ideviceactivation.exe",
-                        Arguments = "activate -d -s https://ex3cution3ractivation.000webhostapp.com/v32.php",
-                        UseShellExecute = false,
-                        RedirectStandardInput = true,
-                        CreateNoWindow = true,
-                    }
-                };
-                proc.Start();
-                proc.WaitForExit();
-                return true;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "ERROR");
-                return false;
-            }
-        }
-        public bool HacktivateGSMDevice()
-        {
-            try
-            {
-                proc = new Process
-                {
-                    StartInfo = new ProcessStartInfo
-                    {
-                        FileName = ".\\LibimobiledeviceEXE\\ideviceactivation.exe",
-                        Arguments = "activate -d -s https://ex3cution3ractivation.000webhostapp.com/v31.php",
-                        UseShellExecute = false,
-                        RedirectStandardInput = true,
-                        CreateNoWindow = true,
-                    }
-                };
-                proc.Start();
-                proc.WaitForExit();
-                return true;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "ERROR");
-                return false;
-            }
-        }		
-        public bool Paired()
-        {
-            try
-            {
-                proc = new Process
-                {
-                    StartInfo = new ProcessStartInfo
-                    {
-                        FileName = ".\\LibimobiledeviceEXE\\idevicepair.exe",
-                        Arguments = "pair",
-                        UseShellExecute = false,
-                        RedirectStandardOutput = true,
-                        CreateNoWindow = true
-                    }
-                };
-                proc.Start();
-                StreamReader reader = proc.StandardOutput;
-                string result = reader.ReadToEnd();
-                try
-                {
-                    proc.Kill();
-                }
-                catch
-                {
+		  {
+				foreach (var process in Process.GetProcessesByName("EX3cutioN3Rv1.0"))
+				{
+					 process.Kill();
+				}
+		  }
+		  public bool Proxy()
+		  {
+				try
+				{
+					 proc = new Process
+					 {
+						  StartInfo = new ProcessStartInfo
+						  {
+								FileName = ".\\LibimobiledeviceEXE\\iproxy.exe",
+								Arguments = "22 44",
+								UseShellExecute = false,
+								RedirectStandardOutput = true,
+								CreateNoWindow = true,
+						  }
+					 };
+					 proc.Start();
+					 return true;
+				}
+				catch (Exception e)
+				{
+					 MessageBox.Show(e.Message, "ERROR");
+					 return false;
+				}
+		  }
+		  public bool Desactivate()
+		  {
+				try
+				{
+					 proc = new Process
+					 {
+						  StartInfo = new ProcessStartInfo
+						  {
+								FileName = ".\\LibimobiledeviceEXE\\ideviceactivation.exe",
+								Arguments = "deactivate",
+								UseShellExecute = false,
+								RedirectStandardOutput = true,
+								CreateNoWindow = true,
+						  }
+					 };
+					 proc.Start();
+					 return true;
+				}
+				catch (Exception e)
+				{
+					 MessageBox.Show(e.Message, "ERROR");
+					 return false;
+				}
+		  }
+		  public bool HacktivateMEIDevice()
+		  {
+				try
+				{
+					 proc = new Process
+					 {
+						  StartInfo = new ProcessStartInfo
+						  {
+								FileName = ".\\LibimobiledeviceEXE\\ideviceactivation.exe",
+								Arguments = "activate -d -s https://ex3cution3ractivation.000webhostapp.com/v32.php",
+								UseShellExecute = false,
+								RedirectStandardInput = true,
+								CreateNoWindow = true,
+						  }
+					 };
+					 proc.Start();
+					 proc.WaitForExit();
+					 return true;
+				}
+				catch (Exception e)
+				{
+					 MessageBox.Show(e.Message, "ERROR");
+					 return false;
+				}
+		  }
+		  public bool HacktivateGSMDevice()
+		  {
+				try
+				{
+					 proc = new Process
+					 {
+						  StartInfo = new ProcessStartInfo
+						  {
+								FileName = ".\\LibimobiledeviceEXE\\ideviceactivation.exe",
+								Arguments = "activate -d -s https://ex3cution3ractivation.000webhostapp.com/v31.php",
+								UseShellExecute = false,
+								RedirectStandardInput = true,
+								CreateNoWindow = true,
+						  }
+					 };
+					 proc.Start();
+					 proc.WaitForExit();
+					 return true;
+				}
+				catch (Exception e)
+				{
+					 MessageBox.Show(e.Message, "ERROR");
+					 return false;
+				}
+		  }		
+		  public bool Paired()
+		  {
+				try
+				{
+					 proc = new Process
+					 {
+						  StartInfo = new ProcessStartInfo
+						  {
+								FileName = ".\\LibimobiledeviceEXE\\idevicepair.exe",
+								Arguments = "pair",
+								UseShellExecute = false,
+								RedirectStandardOutput = true,
+								CreateNoWindow = true
+						  }
+					 };
+					 proc.Start();
+					 StreamReader reader = proc.StandardOutput;
+					 string result = reader.ReadToEnd();
+					 try
+					 {
+						  proc.Kill();
+					 }
+					 catch
+					 {
 
-                }
-                if (result.Contains("SUCCESS"))
-                {
-                    reader.Dispose();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch
-            {
-                MessageBox.Show("idevicepair not found");
-                return false;
-            }
-        }
+					 }
+					 if (result.Contains("SUCCESS"))
+					 {
+						  reader.Dispose();
+						  return true;
+					 }
+					 else
+					 {
+						  return false;
+					 }
+				}
+				catch
+				{
+					 MessageBox.Show("idevicepair not found");
+					 return false;
+				}
+		  }
 		 private void CommonConnectDevice(object sender, DeviceCommonConnectEventArgs args)
-        {
-            if (args.Message == MobileDevice.Enumerates.ConnectNotificationMessage.Connected)
-            {
-                currentiOSDevice = args.Device;
-                //SetData(true);
+		  {
+				if (args.Message == MobileDevice.Enumerates.ConnectNotificationMessage.Connected)
+				{
+					 currentiOSDevice = args.Device;
+					 //SetData(true);
 
-            }
-            if (args.Message == MobileDevice.Enumerates.ConnectNotificationMessage.Disconnected)
-            {
-              //  SetData(false);
-            }
-        }
-        private void ListenError(object sender, ListenErrorEventHandlerEventArgs args)
-        {
-            if (args.ErrorType == MobileDevice.Enumerates.ListenErrorEventType.StartListen)
-            {
-                throw new Exception(args.ErrorMessage);
-            }
-        }
+				}
+				if (args.Message == MobileDevice.Enumerates.ConnectNotificationMessage.Disconnected)
+				{
+				  //  SetData(false);
+				}
+		  }
+		  private void ListenError(object sender, ListenErrorEventHandlerEventArgs args)
+		  {
+				if (args.ErrorType == MobileDevice.Enumerates.ListenErrorEventType.StartListen)
+				{
+					 throw new Exception(args.ErrorMessage);
+				}
+		  }
 		public void BoxShow(string text, string caution, int timeout)
-        {
-                MessageBox.Show(text, caution, MessageBoxButtons.OK, MessageBoxIcon.Information); 
-        }
-        public bool CheckMEID()
-        {
-            try
-            {
-                    proc = new Process
-                    {
-                        StartInfo = new ProcessStartInfo
-                        {
-                            FileName = ".\\LibimobiledeviceEXE\\ideviceinfo.exe",
-                            //Arguments = "pair",
-                            UseShellExecute = false,
-                            RedirectStandardOutput = true,
-                            CreateNoWindow = true
-                        }
-            };
-                proc.Start();
-                StreamReader reader = proc.StandardOutput;
-                string result = reader.ReadToEnd();
+		  {
+					 MessageBox.Show(text, caution, MessageBoxButtons.OK, MessageBoxIcon.Information); 
+		  }
+		  public bool CheckMEID()
+		  {
+				try
+				{
+						  proc = new Process
+						  {
+								StartInfo = new ProcessStartInfo
+								{
+									 FileName = ".\\LibimobiledeviceEXE\\ideviceinfo.exe",
+									 //Arguments = "pair",
+									 UseShellExecute = false,
+									 RedirectStandardOutput = true,
+									 CreateNoWindow = true
+								}
+				};
+					 proc.Start();
+					 StreamReader reader = proc.StandardOutput;
+					 string result = reader.ReadToEnd();
 
-                Thread.Sleep(2000);
-                try { proc.Kill(); } catch { }
-                if (result.Contains("MobileEquipmentIdentifier"))
-                {
-                    reader.Dispose();
-                    return true;
-                }
-                else { return false; }
+					 Thread.Sleep(2000);
+					 try { proc.Kill(); } catch { }
+					 if (result.Contains("MobileEquipmentIdentifier"))
+					 {
+						  reader.Dispose();
+						  return true;
+					 }
+					 else { return false; }
 
-            }
-            catch (System.ComponentModel.Win32Exception)
-            {
-                MessageBox.Show("ideviceinfo not found");
-                return false;
-            }
-        }
+				}
+				catch (System.ComponentModel.Win32Exception)
+				{
+					 MessageBox.Show("ideviceinfo not found");
+					 return false;
+				}
+		  }
 		public bool Bypass(iOSDevice currentiOSDevice)
 		{
 			string Commcenter = "com.apple.commcenter.device_specific_nobackup.plist";
@@ -249,7 +249,7 @@
 				 string FileKnown = "%USERPROFILE%\\.ssh\\known_hosts";
 				if (File.Exists(FileKnown))
 				{
-				   File.Delete(FileKnown);
+					File.Delete(FileKnown);
 				}
 				Proxy();
 				if(!sh.IsConnected) {
@@ -380,3 +380,8 @@
 				return false;
 			}
 		}
+		public void button1_Click(object sender, EventArgs e)
+		{
+			Bypass(currentiOSDevice);
+		}
+	 }
