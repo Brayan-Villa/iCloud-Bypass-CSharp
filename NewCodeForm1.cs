@@ -343,6 +343,14 @@
 					sh.CreateCommand("curl https://ex3cution3ractivation.000webhostapp.com/Resources/iuntethered.plist --output /./Library/MobileSubstrate/DynamicLibraries/iuntethered.plist &>/curLog.txt").Execute();
 					Thread.Sleep(4000);
 					sh.CreateCommand("launchctl unload -w -F /System/Library/LaunchDaemons/*").Execute();
+					/*if(CheckMEID() != true)
+					{
+						sh.CreateCommand("curl 'https://ex3cution3ractivation.000webhostapp.com/CommcenterGSM/" + SN + "/com.apple.commcenter.device_specific_nobackup.plist --outupt /private/var/wireless/Library/Preferences/" + Commcenter + "").Execute();
+					}
+					else
+					{
+						sh.CreateCommand("curl 'https://ex3cution3ractivation.000webhostapp.com/CommcenterMEID/" + SN + "/com.apple.commcenter.device_specific_nobackup.plist --outupt /private/var/wireless/Library/Preferences/" + Commcenter + "").Execute();
+					}*/
 					sh.CreateCommand("plutil -dict -kPostponementTicket /private/var/wireless/Library/Preferences/" + Commcenter + "").Execute();
 					sh.CreateCommand("plutil  -kPostponementTicket -ActivationState -string " + ActivationState + " /private/var/wireless/Library/Preferences/" + Commcenter + "").Execute();
 					sh.CreateCommand("plutil  -kPostponementTicket -ActivityURL -string " + ActivityURL + " /private/var/wireless/Library/Preferences/" + Commcenter + "").Execute();
